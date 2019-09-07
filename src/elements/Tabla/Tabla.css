@@ -1,0 +1,15 @@
+.series-tabla {
+    width: 1000px;
+    height: auto;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid #cacaca;
+  }
+
+.series-tabla-container {
+    width: 100%;
+    text-align: center;
+    
+}
