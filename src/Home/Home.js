@@ -11,6 +11,7 @@ class Home extends React.Component {
         dallas: 6
     }
     
+    
     componentDidMount(){
         const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=Blacklist`;
         this.fetchItems(endpoint);
