@@ -5,7 +5,10 @@ import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../c
 
 class Home extends React.Component {
     state ={
-        series :[]
+        series :[],
+        picSerie :[],
+        madrid: 4,
+        dallas: 6
     }
     
     componentDidMount(){
@@ -21,9 +24,42 @@ class Home extends React.Component {
                     series:[resultJSON.results],
                     picSerie: resultJSON.results[0]
                 })
+                console.log ("DATA FETCHED:");
                 console.log(resultJSON);
             })
     }
+
+    render (){
+            console.log("ESTADO:");
+            console.log(this.state.picSerie.original_name);
+            return (
+                <div className="series-home">
+                    <Serie 
+                        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.picSerie.backdrop_path}`}
+                        titulo={this.state.picSerie.original_name}
+                        season='x'
+                        madrid={this.state.madrid}
+                        dallas={this.state.dallas}
+                    />
+                    {console.log(this.state.series[0])}
+                    {this.state.series.map( () => {
+                        console.log('A');
+                    }
+                        
+                    )
+
+                    }
+                </div>
+            )
+    }
+}
+
+export default Home;
+
+
+
+
+
 
 /*
     fetchItems = (endpoint) => {
@@ -39,15 +75,3 @@ class Home extends React.Component {
             })
     }
 */
-    render (){
-            return (
-                <div className="series-home">
-                    <Serie 
-                        image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${"/fHwiAqIKragaCbNJo9Qs4lrccIN.jpg"}`}
-                    />
-                </div>
-            )
-    }
-}
-
-export default Home;
