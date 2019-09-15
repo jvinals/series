@@ -6,11 +6,9 @@ import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../c
 class Home extends React.Component {
     state ={
         series :[],
-        picSerie :[],
         madrid: 4,
         dallas: 6
     }
-    
 
     componentDidMount(){
         const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=black`;
@@ -23,15 +21,13 @@ class Home extends React.Component {
             .then(resultJSON => {
                 this.setState({
                     series:[resultJSON.results],
-                    picSerie: resultJSON.results[0]
                 })
             })
     }
-    
 
     render (){
             var rowSeries;
-            const rowObject = this.state.series.map((row, index) => {
+            this.state.series.map((row, index) => {
                 rowSeries = row.map((row2, index) => {
                     return (
                         <div>   

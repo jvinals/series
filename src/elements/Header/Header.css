@@ -46,3 +46,19 @@
       margin-top: 5px;
     }
   }
+
+  .loc1 {
+    font-size: 40px;
+    float: left;
+    margin-left: 971px;
+    margin-bottom: 20px;
+    color: #969AF7;
+  }
+
+  .loc2{
+    font-size: 40px;
+    float: left;
+    margin-left: 34px;
+    margin-bottom: 20px;
+    color: #00CC5E;
+  }
