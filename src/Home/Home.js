@@ -19,6 +19,7 @@ class Home extends React.Component {
         fetch(endpoint)
             .then(result => result.json())  
             .then(resultJSON => {
+                console.log(resultJSON.results);
                 this.setState({
                     series:[resultJSON.results],
                 })
