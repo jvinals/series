@@ -12,7 +12,7 @@ class Home extends React.Component {
 
     componentDidMount(){
         //const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=black`;
-        const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=black`;
+        const endpoint = 'http://13.48.111.60:3001/testAPI';
         this.fetchItems(endpoint);
     }
 
