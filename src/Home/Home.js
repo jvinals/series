@@ -12,7 +12,8 @@ class Home extends React.Component {
 
     componentDidMount(){
         //const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=black`;
-        const endpoint = 'http://13.48.111.60:3001/testAPI';
+        //const endpoint = 'http://13.48.111.60:3001/testAPI';
+        const endpoint = 'http://localhost:3001/testAPI';
         this.fetchItems(endpoint);
     }
 
@@ -20,6 +21,8 @@ class Home extends React.Component {
         fetch(endpoint)
             .then(result => result.json())  
             .then(resultJSON => {
+                console.log('Retrieved: ');
+                console.log(resultJSON);
                 console.log(resultJSON.results);
                 this.setState({
                     series:[resultJSON.results],
