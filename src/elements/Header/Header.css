@@ -62,3 +62,9 @@
     margin-bottom: 20px;
     color: #00CC5E;
   }
+
+  .SearchArea {
+    border: 1px solid burlywood;
+    width: 50%;
+    margin:0 auto;
+  }

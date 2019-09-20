@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Serie from '../elements/Serie/Serie';
 import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../config';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Home extends React.Component {
     state ={
@@ -19,35 +20,33 @@ class Home extends React.Component {
 
     fetchItems = (endpoint) => {
         fetch(endpoint)
-            .then(result => result.json())  
-            .then(resultJSON => {
-                console.log('Retrieved: ');
-                console.log(resultJSON);
-                console.log(resultJSON.results);
+        .then(result => result.json())  
+        .then(result => {
+            
                 this.setState({
-                    series:[resultJSON.results],
+                    series:result,
                 })
             })
     }
 
     render (){
-            var rowSeries;
-            this.state.series.map((row, index) => {
-                rowSeries = row.map((row2, index) => {
+            const rowSeries = this.state.series.map((row, index) => {
+                console.log('Row '+index+' '+row.nombre);
                     return (
                         <div>   
                         <Serie 
-                            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${row2.backdrop_path}`}
-                            titulo={row2.original_name}
+                            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop_path}`}
+                            titulo={row.nombre}
                             season='x'
-                            madrid={this.state.madrid}
-                            dallas={this.state.dallas}
-                        />                            
+                            madrid={row.madrid}
+                            dallas={row.dallas}
+                        />                        
                         </div>
                     );
-                });
+                //});
             });
             
+            console.log(rowSeries);
             return (
                 <div className="series-home">
                     {rowSeries}
