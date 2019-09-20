@@ -64,7 +64,8 @@
   }
 
   .SearchArea {
-    border: 1px solid burlywood;
+    border: 0px solid burlywood;
     width: 50%;
     margin:0 auto;
+    transition: transform 500ms ease-in-out;
   }
