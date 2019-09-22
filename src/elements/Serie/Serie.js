@@ -1,5 +1,7 @@
 import React from 'react';
 import './Serie.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 const Serie = (props) => {
     return(
@@ -32,6 +34,9 @@ const Serie = (props) => {
                         <div className="botonEpisodio">-</div>
                     </div>
                 </div>
+                <div className = "colS4">
+                    <Button variant="outline-danger" size="sm" style={{marginTop:'40px', marginLeft:'30px', float:'left'}}>Delete</Button>
+                </div>    
             </div>
         </div>
     )
