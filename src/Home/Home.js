@@ -1,8 +1,9 @@
 import React from 'react';
 import './Home.css';
-import Serie from '../elements/Serie/Serie';
 import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../config';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Serie from '../elements/Serie/Serie';
+import SearchList from '../elements/SearchList/SearchList';
 
 class Home extends React.Component {
     state ={
@@ -48,9 +49,16 @@ class Home extends React.Component {
             
             console.log(rowSeries);
             return (
-                <div className="series-home">
-                    {rowSeries}
+                <div>
+                    <div>
+                        <SearchList/>
+                    </div>
+                    <div className="loc1">Madrid</div><div className="loc2">Dallas</div>
+                    <div className="series-home">
+                        {rowSeries}
+                    </div>
                 </div>
+                
             )
             
         }
