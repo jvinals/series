@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const mysql = require('mysql2');
 
+console.log('Inside testAPI');
+
 const connection = mysql.createConnection({
     host: 'series.cfe2ta0a8zok.eu-north-1.rds.amazonaws.com',
     user: 'series',

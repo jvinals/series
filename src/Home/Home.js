@@ -31,6 +31,7 @@ class Home extends React.Component {
                 })
             })
     }
+
     // Functions for Search Box
     updateInput = (evt) => {
         console.log('Input Text: '+evt.target.value);
@@ -58,12 +59,20 @@ class Home extends React.Component {
             })
     }
 
-    addSerie = () => {
-        console.log('addSerie');
+    addSerie = (index) => {
+        console.log('addSerie: '+index+' Title: '+this.state.resultSearch[index].original_name);
         this.setState({
             resultSearch:[],
+            series: [ ...this.state.series, {
+                'nombre': this.state.resultSearch[index].original_name,
+                'idSerie': this.state.resultSearch[index].id,
+                'madrid':0,
+                'dallas':0,
+            }]
             // inputText:'',
         })
+        const endpoint = 'http://localhost:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0';
+        fetch(endpoint);
     }
 
     renderSearchBox = () => {
@@ -88,12 +97,12 @@ class Home extends React.Component {
                 //});
             });
             
-            console.log(rowSeries);
+            //console.log(rowSeries);
             const searchListContent = this.state.resultSearch.map((row, index) => {
                 return(
                     <div>
 
-                        <div className='RowResult' onClick={this.addSerie} > 
+                        <div className='RowResult' onClick={() => this.addSerie(index)}> 
                         <div className="imgSerie"
                                 style={{
                                     height:'150px',
