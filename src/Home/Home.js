@@ -66,17 +66,14 @@ class Home extends React.Component {
             series: [ ...this.state.series, {
                 'nombre': this.state.resultSearch[index].original_name,
                 'idSerie': this.state.resultSearch[index].id,
+                'backdrop': this.state.resultSearch[index].backdrop_path,
                 'madrid':0,
                 'dallas':0,
             }]
             // inputText:'',
         })
-        const endpoint = 'http://localhost:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0';
+        const endpoint = 'http://localhost:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0&backdrop='+this.state.resultSearch[index].backdrop_path;
         fetch(endpoint);
-    }
-
-    renderSearchBox = () => {
-
     }
     // (END) Functions for Search Box
     
@@ -86,7 +83,7 @@ class Home extends React.Component {
                     return (
                         <div>   
                         <Serie 
-                            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop_path}`}
+                            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop}`}
                             titulo={row.nombre}
                             season='x'
                             madrid={row.madrid}
