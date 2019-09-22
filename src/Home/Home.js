@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Serie from '../elements/Serie/Serie';
-import SearchList from '../elements/SearchList/SearchList';
 
 class Home extends React.Component {
     state ={
@@ -66,7 +65,7 @@ class Home extends React.Component {
             // inputText:'',
         })
     }
-    
+
     renderSearchBox = () => {
 
     }

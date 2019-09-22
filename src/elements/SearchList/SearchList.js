@@ -16,39 +16,6 @@ class SearchList extends React.Component {
         };
     }
 
-    fetchItems = (endpoint) => {
-        fetch(endpoint)
-        .then(result => result.json())  
-        .then(result => {     
-                this.setState({
-                    resultSearch:result.results,
-                })
-            })
-    }
-
-    getSeries = () => {
-        const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=${this.state.inputText}`;
-        this.fetchItems(endpoint);    
-        this.setState({
-            //heightBox:'180px'
-        }) 
-    }
-
-    updateInput = (evt) => {
-        //console.log('Input Text: '+evt.target.value);
-        this.setState({
-            inputText: evt.target.value
-        })  
-    }
-  
-    addSerie = () => {
-        console.log('addSerie');
-        this.setState({
-            resultSearch:[],
-            // inputText:'',
-        })
-    }
-
     render(){
         console.log('this.state.rowSearch[0].name = '+this.state.rowSearch);
         const rowSearch = this.state.resultSearch.map((row, index) => {
