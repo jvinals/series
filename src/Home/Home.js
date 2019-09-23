@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
-import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../config';
+import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE} from '../config';
+//import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE} from '../config';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
