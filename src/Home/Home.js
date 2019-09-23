@@ -75,20 +75,36 @@ class Home extends React.Component {
         const endpoint = 'http://localhost:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0&backdrop='+this.state.resultSearch[index].backdrop_path;
         fetch(endpoint);
     }
+
+    deleteSerie = (index) => {
+        console.log('deleteSerie: '+index+' Title: '+this.state.series[index].nombre);
+        const endpoint = 'http://localhost:3001/deleteData?id='+this.state.series[index].idSerie;
+        fetch(endpoint);
+        const newSeries = this.state.series.splice(index,1);
+        console.log('newSeries: '+ newSeries[0].nombre);
+        this.setState({
+            resultSearch:[],
+            series: this.state.series
+            // inputText:'',
+        })
+    }
     // (END) Functions for Search Box
     
     render (){
             const rowSeries = this.state.series.map((row, index) => {
                 console.log('Row '+index+' '+row.nombre);
                     return (
-                        <div>   
+                        <div className="rowContainer">   
                         <Serie 
                             image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop}`}
                             titulo={row.nombre}
                             season='x'
                             madrid={row.madrid}
                             dallas={row.dallas}
-                        />                        
+                        />                       
+                        <div className = "colS4">
+                            <Button variant="outline-danger" size="sm" onClick={() => this.deleteSerie(index)} style={{marginTop:'40px', marginLeft:'30px', float:'left'}}>Delete</Button>
+                        </div>    
                         </div>
                     );
                 //});

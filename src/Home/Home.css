@@ -7,3 +7,16 @@
     margin: 0 auto;
     padding: 0 20px;
   }
+
+  .colS4 {
+    float: left;
+    width:80px;
+    height:100%;
+    border: 0px solid burlywood;
+    margin-top:17px;
+  }
+
+  .rowContainer {
+    margin:0 auto;
+    display:table;
+  }
