@@ -8,13 +8,7 @@ const Serie = (props) => {
         <div className="series-tabla-container"> 
             <div className="series-tabla">
                 <div className="imgSerie"
-                    style={{
-                        height:'150px',
-                        width:'300px',
-                        backgroundSize: '100% 100%',
-                        backgroundColor: 'rbga(100,100,100,.5)',
-                        backgroundImage:`url('${props.image}')`,
-                    }} 
+                    style={{backgroundImage:`url('${props.image}')`}} 
                 ></div>    
                 <div className = "colS1">
                     <div className="seriesNombre">{props.titulo}</div>
