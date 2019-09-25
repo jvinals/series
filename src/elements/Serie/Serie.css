@@ -32,7 +32,6 @@
 }
 
 .seriesNombre {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   border:0px solid #cacaca;
   text-align: left;
@@ -41,7 +40,6 @@
   }
 }
 .seriesSeason {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #747474;
   border:0px solid #cacaca;
@@ -61,7 +59,6 @@
 }
 
 .episodio {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 50px;
   color: #969AF7;
   float:left;
