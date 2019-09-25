@@ -19,7 +19,7 @@ class Home extends React.Component {
     componentDidMount(){
         //const endpoint = `${API_URL}search/tv?api_key=${API_KEY}&page=1&query=black`;
         //const endpoint = 'http://13.48.111.60:3001/testAPI';
-        const endpoint = 'http://localhost:3001/testAPI';
+        const endpoint = 'http://13.48.111.60:3001/testAPI';
         this.fetchItems(endpoint);
     }
 
@@ -73,13 +73,13 @@ class Home extends React.Component {
             }]
             // inputText:'',
         })
-        const endpoint = 'http://localhost:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0&backdrop='+this.state.resultSearch[index].backdrop_path;
+        const endpoint = 'http://13.48.111.60:3001/recordData?nombre='+this.state.resultSearch[index].original_name+'&id='+this.state.resultSearch[index].id+'&madrid=0&dallas=0&backdrop='+this.state.resultSearch[index].backdrop_path;
         fetch(endpoint);
     }
 
     deleteSerie = (index) => {
         console.log('deleteSerie: '+index+' Title: '+this.state.series[index].nombre);
-        const endpoint = 'http://localhost:3001/deleteData?id='+this.state.series[index].idSerie;
+        const endpoint = 'http://13.48.111.60:3001/deleteData?id='+this.state.series[index].idSerie;
         fetch(endpoint);
         const newSeries = this.state.series.splice(index,1);
         console.log('newSeries: '+ newSeries[0].nombre);
