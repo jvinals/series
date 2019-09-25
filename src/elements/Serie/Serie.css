@@ -1,5 +1,5 @@
 .series-tabla {
-    width: 1000px;
+    width: 100%;
     height: auto;
     box-sizing: border-box;
     display: inline-block;
@@ -7,7 +7,7 @@
   }
 
 .series-tabla-container {
-    /*width: 80%;*/
+    width: 100%;
     text-align: center; 
     float:left;
 }
@@ -15,23 +15,25 @@
 .imgSerie {
   float: left;
   height:150px;
-  width:300px;
-  background-size: 100% 100%;
+  width:100%;
+  background-size: cover;
   background-color: rbga(100,100,100,.5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .colS1 {
   float: left;
-  width:300px;
+  width:120px;
   height:100%;
   border: 0px solid burlywood;
-  padding-left:30px;
-  margin-top:40px;
+  padding-left:10px;
+  margin-top:0px;
 }
 
 .seriesNombre {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 18px;
   border:0px solid #cacaca;
   text-align: left;
   @media screen and (max-width: 576px) {
@@ -40,24 +42,27 @@
 }
 .seriesSeason {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   color: #747474;
   border:0px solid #cacaca;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 0px;
+  margin-top: -5px;
 }
 
 .colS2 {
   float: left;
-  width:140px;
+  width:80px;
   height:100%;
   border: 0px solid burlywood;
-  margin-top:17px;
+  margin-top:0px;
+  display: flex;
+  justify-content: center;
 }
 
 .episodio {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 90px;
+  font-size: 50px;
   color: #969AF7;
   float:left;
 }
@@ -66,46 +71,57 @@
   width: 20px;
   border: 0px solid black;
   float:left;
-  margin-top:20px;
+  margin-top:0px;
   margin-left:12px;
+  align-self: center;
 }
 
 .botonEpisodio {
   float:left;
   border: 1px solid #dddddd;
-  width:15px;
+  line-height: 16px;
+  width:20px;
   height:20px;
-  margin-top:5px;
+  margin-top:0px;
   color: #848484;
 }
 
 .colS3 {
   float: left;
-  width:140px;
+  width:80px;
   height:100%;
   border: 0px solid burlywood;
-  margin-top:17px;
+  margin-top:0px;
+  display: flex;
+  justify-content: center;
 }
 
 .colS4 {
   float: left;
-  width:80px;
   height:100%;
   border: 0px solid burlywood;
-  margin-top:17px;
+  margin-top:0px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 2576px) {
   .imgSerie {
     float: left;
-    height:50px;
-    width:100px;
+    height:75px;
   }
 
   .seriesNombre {
-    color: greenyellow;
+    font-size: 16px;  
   }
- }
+
+  .loc1 {
+    display: none;
+  }
+
+  .loc2 {
+    display: none;
+  }
+
+}
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
@@ -114,8 +130,8 @@ Small devices (landscape phones, 576px and up)*/
 @media screen and (max-width: 576px) {
   .imgSerie {
     float: left;
-    height:50px;
-    width:100px;
+    height:75px;
+    width:150px;
   }
 
   .seriesNombre {

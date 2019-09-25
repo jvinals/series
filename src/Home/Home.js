@@ -102,9 +102,10 @@ class Home extends React.Component {
                             season='x'
                             madrid={row.madrid}
                             dallas={row.dallas}
-                        />                       
+                        />   
+                                            
                         <div className = "colS4">
-                            <Button variant="outline-danger" size="sm" onClick={() => this.deleteSerie(index)} style={{marginTop:'40px', marginLeft:'30px', float:'left'}}>Delete</Button>
+                            <Button variant="outline-danger" size="sm" onClick={() => this.deleteSerie(index)} style={{fontSize:'10px', margin:'0 auto'}}>Delete</Button>
                         </div>    
                         </div>
                     );

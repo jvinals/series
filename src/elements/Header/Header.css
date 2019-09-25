@@ -111,7 +111,7 @@
 
   .SearchArea {
     border: 0px solid burlywood;
-    width: 50%;
+    width: 100%;
     margin:0 auto;
     transition: transform 500ms ease-in-out;
   }
