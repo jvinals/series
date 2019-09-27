@@ -17,15 +17,15 @@ const Serie = (props) => {
                 <div className = "colS2">
                     <div className="episodio">{props.madrid}</div>
                     <div className="colInterna">
-                        <div className="botonEpisodio">+</div>
-                        <div className="botonEpisodio">-</div>
+                        <div className="botonEpisodio" onClick={() => props.setSeriesViewVal(props.serieIndex,'+','madrid')}>+</div>
+                        <div className="botonEpisodio" onClick={() => props.setSeriesViewVal(props.serieIndex,'-','madrid')}>-</div>
                     </div>
                 </div>
                 <div className = "colS3">
                     <div className="episodio" style={{color:'#00CC5E'}}>{props.dallas}</div>
                     <div className="colInterna">
-                        <div className="botonEpisodio">+</div>
-                        <div className="botonEpisodio">-</div>
+                        <div className="botonEpisodio" onClick={() => props.setSeriesViewVal(props.serieIndex,'+','dallas')}>+</div>
+                        <div className="botonEpisodio" onClick={() => props.setSeriesViewVal(props.serieIndex,'-','dallas')}>-</div>
                     </div>
                 </div>
             </div>

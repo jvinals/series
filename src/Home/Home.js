@@ -13,7 +13,8 @@ class Home extends React.Component {
         resultSearch: [],
         inputText: '',
         madrid: 4,
-        dallas: 6
+        dallas: 6,
+        stateA: "whatever"
     }
 
     componentDidMount(){
@@ -90,7 +91,27 @@ class Home extends React.Component {
         })
     }
     // (END) Functions for Search Box
-    
+  
+    setSeriesViewVal = (newVal, butType, ciudad) => { 
+        console.log('Detected 2 lift up: '+newVal);
+        console.log('Detected 2 type: '+butType+' City: '+ciudad);
+        console.log(this.state.series[newVal]);
+        if (butType == '+') {
+            if (ciudad == 'madrid') {
+                this.state.series[newVal].madrid ++;
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].idSerie+'&ciudad='+this.state.series[newVal].madrid;
+                fetch(endpoint);  
+            }else{
+                this.state.series[newVal].dallas ++; 
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].idSerie+'&ciudad='+this.state.series[newVal].dallas;
+                fetch(endpoint);  
+            }
+        } else {
+            if (ciudad == 'madrid') this.state.series[newVal].madrid --; else this.state.series[newVal].dallas --; 
+        }
+        this.setState({stateA: newVal});
+    }
+
     render (){
             const rowSeries = this.state.series.map((row, index) => {
                 console.log('Row '+index+' '+row.nombre);
@@ -102,6 +123,8 @@ class Home extends React.Component {
                             season='x'
                             madrid={row.madrid}
                             dallas={row.dallas}
+                            setSeriesViewVal = {this.setSeriesViewVal}
+                            serieIndex = {index}
                         />   
                                             
                         <div className = "colS4">
