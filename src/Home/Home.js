@@ -99,16 +99,23 @@ class Home extends React.Component {
         if (butType == '+') {
             if (ciudad == 'madrid') {
                 this.state.series[newVal].madrid ++;
-                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].idSerie+'&ciudad='+this.state.series[newVal].madrid;
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].madrid+'&ciudad=madrid';
                 fetch(endpoint);  
             }else{
                 this.state.series[newVal].dallas ++; 
-                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].idSerie+'&ciudad='+this.state.series[newVal].dallas;
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].dallas+'&ciudad=dallas';
                 fetch(endpoint);  
             }
         } else {
-            if (ciudad == 'madrid') this.state.series[newVal].madrid --; else this.state.series[newVal].dallas --; 
-        }
+            if (ciudad == 'madrid') {
+                this.state.series[newVal].madrid --;
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].madrid+'&ciudad=madrid';
+                fetch(endpoint);  
+            }else{
+                this.state.series[newVal].dallas --; 
+                const endpoint = 'http://13.48.111.60:3001/editData?id='+this.state.series[newVal].idSerie+'&valor='+this.state.series[newVal].dallas+'&ciudad=dallas';
+                fetch(endpoint);  
+            }        }
         this.setState({stateA: newVal});
     }
 
