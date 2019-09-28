@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Serie from '../elements/Serie/Serie';
+import SweetAlert from 'sweetalert-react'; // eslint-disable-line import/no-extraneous-dependencies
+import 'sweetalert/dist/sweetalert.css';
 
 class Home extends React.Component {
     state ={
@@ -14,7 +16,8 @@ class Home extends React.Component {
         inputText: '',
         madrid: 4,
         dallas: 6,
-        stateA: "whatever"
+        stateA: "whatever",
+        show: false
     }
 
     componentDidMount(){
@@ -79,7 +82,8 @@ class Home extends React.Component {
     }
 
     deleteSerie = (index) => {
-        console.log('deleteSerie: '+index+' Title: '+this.state.series[index].nombre);
+        //console.log('deleteSerie: '+index+' Title: '+this.state.series[index].nombre);
+        console.log('Inside deleteSerie');
         const endpoint = 'http://13.48.111.60:3001/deleteData?id='+this.state.series[index].idSerie;
         fetch(endpoint);
         const newSeries = this.state.series.splice(index,1);
@@ -135,13 +139,31 @@ class Home extends React.Component {
                         />   
                                             
                         <div className = "colS4">
-                            <Button variant="outline-danger" size="sm" onClick={() => this.deleteSerie(index)} style={{fontSize:'10px', margin:'0 auto'}}>Delete</Button>
-                        </div>    
+                            <Button variant="outline-danger" size="sm" onClick={() => this.setState({ show: true })} style={{fontSize:'10px', margin:'0 auto'}}>Delete</Button>
+                        </div>   
+                        <SweetAlert
+                            show={this.state.show}
+                            title="Seguro que deseas borrarla ?"
+                            text="Por favor confirma"
+                            showCancelButton
+                            onConfirm={() => {
+                                console.log('Si, borrala ya'); // eslint-disable-line no-console
+                                console.log("Indice = "+index);
+                                this.setState({ show: false });   
+                                this.deleteSerie(index);
+                                console.log('----------------------------------------------------');
+                            }}
+                            onCancel={() => {
+                                console.log('cancel'); // eslint-disable-line no-console
+                                this.setState({ show: false });
+                            }}
+                            onClose={() => console.log('close')} // eslint-disable-line no-console
+                        /> 
                         </div>
                     );
                 //});
             });
-            
+            //onClick={() => this.deleteSerie(index)} 
             //console.log(rowSeries);
             const searchListContent = this.state.resultSearch.map((row, index) => {
                 return(
