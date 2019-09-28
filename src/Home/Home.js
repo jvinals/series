@@ -165,31 +165,41 @@ class Home extends React.Component {
             });
             //onClick={() => this.deleteSerie(index)} 
             //console.log(rowSeries);
-            const searchListContent = this.state.resultSearch.map((row, index) => {
-                return(
-                    <div>
-
-                        <div className='RowResult' onClick={() => this.addSerie(index)}> 
-                        <div className="imgSerie"
-                                style={{
-                                    height:'150px',
-                                    width:'300px',
-                                    marginRight:'10px',
-                                    marginTop:'5px',
-                                    marginBottom:'5px',
-                                    backgroundSize: '100% 100%',
-                                    backgroundColor: 'rbga(100,100,100,.5)',
-                                    backgroundImage:`url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop_path}')`,
-                                }} 
-                            ></div>  
-                            <div className="Titulo">{row.name}</div>
-                            <div className="Fecha">{row.first_air_date.substring(0,4)}</div>
-                            <div className="Descripcion">{row.overview}</div>
+            let searchListContent = "";
+            if (this.state.resultSearch === undefined){
+                searchListContent = "";
+            }else{
+                searchListContent = this.state.resultSearch.map((row, index) => {
+                    let newFecha = "";
+                    if (row.first_air_date){
+                        console.log('row.first_air_date: '+row.first_air_date);
+                        newFecha = row.first_air_date.substring(0,4);
+                    };
+                    return(
+                        <div>
+    
+                            <div className='RowResult' onClick={() => this.addSerie(index)}> 
+                            <div className="imgSerie"
+                                    style={{
+                                        height:'150px',
+                                        width:'300px',
+                                        marginRight:'10px',
+                                        marginTop:'5px',
+                                        marginBottom:'5px',
+                                        backgroundSize: '100% 100%',
+                                        backgroundColor: 'rbga(100,100,100,.5)',
+                                        backgroundImage:`url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${row.backdrop_path}')`,
+                                    }} 
+                                ></div>  
+                                <div className="Titulo">{row.name}</div>
+                                <div className="Fecha">{newFecha}</div>
+                                <div className="Descripcion">{row.overview}</div>
+                            </div>
+       
                         </div>
-   
-                    </div>
-                    );
-            });
+                        );
+                });
+            }
 
             console.log('search list content: '+searchListContent);
 
