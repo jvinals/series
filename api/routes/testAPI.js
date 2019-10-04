@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     host: 'testsdatabase.cbcwzu6t23dh.eu-north-1.rds.amazonaws.com',
     user: 'series',
     password: 'etcaSceEyEa375R88d',
-    database: 'Series'
+    database: 'series'
   });
 
 router.get('/', function(req, res, next) {
