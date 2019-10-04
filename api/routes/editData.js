@@ -5,7 +5,7 @@ const mysql = require('mysql2');
 console.log('Inside deleteData');
 
 const connection = mysql.createConnection({
-    host: 'series.cfe2ta0a8zok.eu-north-1.rds.amazonaws.com',
+    host: 'testsdatabase.cbcwzu6t23dh.eu-north-1.rds.amazonaws.com',
     user: 'series',
     password: 'etcaSceEyEa375R88d',
     database: 'Series'
